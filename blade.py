@@ -55,8 +55,8 @@ class Blade():
     except (TypeError, ValueError, AttributeError):
       self.currentServer = "X"
 
-    m = re.search("Total MHS:</td><td align=\'left\'>([0-9]+)", self.request.content)
     try:
+      m = re.search("Total MHS:</td><td align=\'left\'>([0-9]+)", self.request.content)
       self.MHPS = m.groups()[0]
     except (TypeError, ValueError, AttributeError):
       self.MHPS = "X"
@@ -184,8 +184,8 @@ class Blade():
   def uploadRestart(self):
     try:
       result = self.query("Upload_Data", post=self.form, timeout=10)
-    except BladeError:
-      raise
+    except BladeError, err:
+      raise BladeError(err.msg)
 
     return result
 
