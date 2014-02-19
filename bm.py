@@ -4,7 +4,7 @@ pp = pprint.PrettyPrinter()
 
 def parseArgs():
 
-  parser = argparse.ArgumentParser(description="Tool to manipulate BitFountain ASICMINER v2 Blades", epilog=epilog)
+  parser = argparse.ArgumentParser(description="Tool to manipulate BitFountain ASICMINER v2 Blades")
   actionGroup = parser.add_mutually_exclusive_group()
   actionGroup.add_argument("-S", dest="Switch", action="store_true", help="Switch Servers")
   actionGroup.add_argument("-U", dest="Update", action="store_true", help="Update Configuration")
